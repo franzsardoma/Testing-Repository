@@ -1,0 +1,14 @@
+#undoBtn{
+	display: none;
+}
+.close.icon{
+	font-size: 1.0em !important;
+}
+
+#deleteRow{
+	text-align: center!important;
+}
+
+#ul{
+	list-style: none!important;
+}

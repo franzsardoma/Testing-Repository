@@ -1,0 +1,118 @@
+body{
+  font-family: 'Raleway', sans-serif;
+  padding: 4em;
+  background: #f0f2f5;
+}
+h1, h2, h3, h4, h5, h6 , a , p{
+ font-family: 'Raleway', sans-serif;
+}
+
+.univTemp{
+  color: white !important;
+  letter-spacing: 1px;
+  font-weight: normal !important;
+}
+.ui.fixed.menu{
+  font-size: 1.70em  !important;
+  background: #3E474F  !important;
+  height: 80px;
+}
+.iconColor{
+  color:#3AC162 !important;
+}
+.white{
+  color: white;
+}
+.ui.grid.container {
+    width: calc(1500px + 2rem)!important;
+    margin-left: 4%!important;
+
+}
+.displayNone {
+  display: none;
+}
+.ui.four.cards>.card {
+    width: calc(15% - 1.5em);
+    margin: 0 auto;
+}
+.fileUpload, .droppableSystemType,.droppableTable,.droppableConditionalTable{
+  min-height: 150px;
+  height: 100% !important;
+}
+.fileUpload{
+  border-style: dashed !important;
+  border: 3px dashed #ffd152 !important;
+}
+.ui.segment.mainForm{
+  /* border-top: 4px solid #3659a2 !important; */
+  background: white !important;
+}
+.ui.menu .active.item{
+  letter-spacing: 3px;
+  border-bottom: none !important;
+  border-top: 5px solid #ffd152  !important;
+}
+
+.ui.table.firstMenuTable thead th {
+    background:#6cd0ac;
+    color:white;
+
+}
+.ui.table.secondMenuTable thead th {
+    background: #efeae1;
+    color:#574c4f;
+
+}
+table {
+  margin-bottom: 20px !important;
+}
+.btnGreen{
+  background-color: #3AC162 !important;
+  border: solid 2px #3AC162 !important;
+  color: white !important;
+}
+.rightMenu {
+  position: fixed !important;
+  right: 6% !important;
+  overflow-y: scroll !important;
+  max-height: 100%  !important;
+
+}
+#imageByURL-2, #imageManager-2{
+    display: none;
+}
+
+.fr-toolbar{
+      border-top: 2px solid #222 !important;
+}
+.draggableConditionalTable{
+  margin-bottom: 12px !important;
+}
+
+.tableBackground {
+    background: #f3f4f5;
+}
+.five.wide.column.rightMenu{
+  height: 90%;
+  overflow-y: visible;
+}
+.style {
+  padding-right: 25px;
+  padding-bottom: 30px;
+}
+
+/* #conditionWidth {
+  width: 400px;
+}
+
+#operatorWidth{
+  width: 300px;
+}
+
+/* #operatorWidth{
+  width: 400px;
+}#operatorWidth{
+  width: 400px;
+}#operatorWidth{
+  width: 400px;
+} */ */

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Universal Template</title>
+  <!-- For Font Style. -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <!-- Semantic Ui CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <!-- Own Ui CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/table.css">
+  <!-- Include jQuery. -->
+  <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+  <!-- Include jQuery UI. -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- Include Semantic UI JS. -->
+  <script type="text/javascript" src="assets/js/semantic.js" charset="utf-8"></script>
+  <!-- Include external CSS. -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+  <!-- Include Editor style. -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.pkgd.min.css" rel="stylesheet"
+    type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css" rel="stylesheet"
+    type="text/css" />
+  <!-- Include viewer style -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="ui fixed menu">
+    <div class="header item">
+      <i class="icon code iconColor"></i>
+      <a class="univTemp"> Universal Template</a>
+    </div>
+    <div class="right menu">
+      <label for="file" class="ui icon item button openFile">
+        <span class="white"><i class="upload icon iconColor"></i> Open File</span>
+      </label>
+      <input type="file" id="file" class="displayNone">
+    </div>
+  </div>
+  <!-- END OF NAVBAR -->
+  <!-- MAIN CONTAINER -->
+  <div class="ui grid stackable container">
+    <div class="ten wide column">
+      <div class="ui segment mainForm">
+        <!--START OF MAIN FORM -->
+        <form class="ui large form dropzone" id="mainForm">
+          <!-- DISPLAYING ERROR MESSAGES WHEN VALIDATING  -->
+          <div class="ui error message"></div>
+          <!-- END OF DISPLAYING ERROR MESSAGES WHEN VALIDATING  -->
+          <!-- RULE NAME INPUT -->
+          <div class="field mainForm">
+            <label>Rule Name</label>
+            <input type="text" name="ruleName" placeholder="Insert Rule Name" id="name">
+          </div>
+          <!-- END OF RULE NAME INPUT -->
+          <!-- RULE DESCRIPTION INPUT -->
+          <div class="field mainForm">
+            <label>Rule Description</label>
+            <textarea id="ruleDescription">
+                     </textarea>
+          </div>
+          <!-- END OF RULE DESCRIPTION INPUT -->
+          <!-- START OF UPLOAD IMAGE INPUT -->
+          <div class="field mainForm">
+            <label>Upload Image</label>
+            <!-- <input type="file" name="fileUpload" id="fileUpload" multiple> -->
+          </div>
+          <div class="field" id="imageGallery">
+
+          </div>
+          <!-- END OF UPLOAD IMAGE INPUT -->
+          <!--START SYSTEM TYPE DIV -->
+          <div class="field mainForm type">
+            <label>Sytem Type</label>
+            <div class="">
+              <input type="hidden" name="droppableSystemTypeInput"></input>
+              <!-- THIS WILL VALIDATE IF THE SYSTEM TYPE DIV IS EMPTY -->
+              <div class="ui segment droppableSystemType" id="droppableSystemType">
+
+              </div>
+            </div>
+          </div>
+          <!--END OF SYSTEM TYPE DIV -->
+          <!--START OF TABLE DIV -->
+          <div class="field mainForm Table">
+            <label>Table</label>
+            <input type="hidden" name="droppableTableInput"></input>
+            <div class="ui segment droppableTable" id="tablesContainer">
+              <!-- THIS WILL BE THE CONTAINER FOR DROOPED SYSTEM TYPE -->
+            </div>
+          </div>
+          <!--END OF START TABLE DIV -->
+          <!--START OF CONDITIONAL TABLE DIV -->
+          <div class="field mainForm conditionalTable">
+            <label>Condtional Table</label>
+            <input type="hidden" name="droppableConditionalTableInput"></input>
+            <div class="ui segment droppableConditionalTable" id="conditionalContainer">
+              <!-- THIS WILL BE THE CONTAINER FOR DROOPED SYSTEM TYPE -->
+            </div>
+          </div>
+          <!--END OF CONDITIONAL TABLE DIV -->
+          <!-- DISPLAYING ERROR MESSAGES WHEN VALIDATING  -->
+          <div class="ui error message"></div>
+          <!-- END OF DISPLAYING ERROR MESSAGES WHEN VALIDATING  -->
+          <!--BUTTON FOR SUBMITTING THE FORM -->
+          <!--END OF BUTTON FOR SUBMITTING THE FORM -->
+          <button class="ui button blue fluid" type="submit" id="submitForm">Create Rule</button>
+        </form>
+        <!-- END OF FORM -->
+      </div>
+    </div>
+    <!--END OF ELEVEN WIDE CONTAINER -->
+    <!--START OF FIVE WIDE A.K.A SIDEBAR CONTAINER -->
+    <div class="six wide column rightMenu">
+      <!--START OF SIDEBAR MENU-->
+      <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="first">System Type</a>
+        <a class="item" data-tab="second">Table</a>
+        <a class="item" data-tab="third">Condition Table</a>
+      </div>
+      <!--END OF SIDEBAR MENU-->
+      <div class="ui bottom attached active tab segment" data-tab="first">
+        <h4 class="ui horizontal header centered">GFA Header Table </h4>
+        <div class="ui two column grid segment draggableSystemType" style="padding-left: 8%; padding-right:8%;" id="draggableSystemTypeGFA">
+          <div class="row">
+            <div class="column">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui radio checkbox Include">
+                      <input type="radio" name="includeExclude" class="includeExclude" value="Include">
+                      <label class="checkBoxLabel">Included</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox Exclude">
+                      <input type="radio" name="includeExclude" class="includeExclude" value="Exclude">
+                      <label class="checkBoxLabel">Excluded</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox Covered Space Type 1">
+                      <input type="checkbox" name="coveredUncovered" class="coveredUncovered" value="Covered">
+                      <label class="checkBoxLabel">Covered Space Type 1</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Uncovered Space Type 1">
+                      <input type="checkbox" name="coveredUncovered" class="coveredUncovered" value="Uncovered">
+                      <label class="checkBoxLabel">Uncovered Space Type 1</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h4 class="ui horizontal header centered">PUB Header Table </h4>
+        <div class="ui one column grid segment draggableSystemType" style="padding-left: 35%;" id="draggableSystemType">
+          <div class="row">
+            <div class="column">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox ColdWater">
+                      <input type="checkbox" name="pubSelect[]" value="Cold Water">
+                      <label class="checkBoxLabel">Cold Water</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Drainage">
+                      <input type="checkbox" name="pubSelect[]" value="Drainage">
+                      <label class="checkBoxLabel">Drainage</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox FireProtectionWet">
+                      <input type="checkbox" name="pubSelect[]" value="Fire Protection Wet">
+                      <label class="checkBoxLabel">Fire Protection Wet</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox HotWater">
+                      <input type="checkbox" name="pubSelect[]" value="Hot Water">
+                      <label class="checkBoxLabel">Hot Water</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Hydronic">
+                      <input type="checkbox" name="pubSelect[]" value="Hydronic">
+                      <label class="checkBoxLabel">Hydronic</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Sanitary">
+                      <input type="checkbox" name="pubSelect[]" value="Sanitary">
+                      <label class="checkBoxLabel">Sanitary</label>
+                    </div>
+                  </div>
+                   <div class="field">
+                    <div class="ui checkbox Service">
+                      <input type="checkbox" name="pubSelect[]" value="Service">
+                      <label class="checkBoxLabel">Service</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Sewerage">
+                      <input type="checkbox" name="pubSelect[]" value="Sewerage">
+                      <label class="checkBoxLabel">Sewerage</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui checkbox Vent">
+                      <input type="checkbox" name="pubSelect[]" value="Vent">
+                      <label class="checkBoxLabel">Vent</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="second">
+        <h4 class="ui horizontal header centered">4 Column Table </h4>
+        <div class="ui form draggableTable">
+          <table class="ui black table 4Cols">
+            <thead>
+              <tr>
+                <th colspan="5"><input type="text" class="toAppendText getIdToBeTextValue" placeholder='Enter table name'></th>
+              </tr>
+              <tr>
+                <th id="state">State</th>
+                <th id="property">Property</th>
+                <th id="operator">Operator</th>
+                <th id="value">Value</th>
+                <th class="toHideinOutputHTML">
+                  <span>
+                    <i class="delete orange icon deleteTable toHideinOutputHTML"></i>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tableBackground">
+              <tr>
+                <td>
+                  <div class="field">
+                    <select class="ui fluid dropdown" name="state0">
+                      <option value="Include">Included</option>
+                      <option value="Exclude">Excluded</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <select class="ui fluid dropdown" name="property0">
+                      <option value="LongName">Long Name</option>
+                      <option value="Occupancy">Occupancy</option>
+                      <option value="Level">Level</option>
+                      <option value="Any">Any</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <select class="ui fluid dropdown" name="operator0">
+                      <option value="Match">Match</option>
+                      <option value="Contains">Contains</option>
+                      <option value="N/A">N/A</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <input type="text" name="value0">
+                </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="ui horizontal header centered">5-Column Table</h4>
+        <div class="ui form draggableTable 5Column" id="5Column">
+          <table class="ui black table 5Cols">
+            <thead>
+              <tr>
+                <th colspan="6"><input type="text" class="toAppendText getIdToBeTextValue" placeholder='Enter table name'></th>
+              </tr>
+              <tr>
+                <th id="state">State</th>
+                <th id="type">Type</th>
+                <th id="property">Property</th>
+                <th id="operator">Operator</th>
+                <th id="value">Value</th>
+                <th class="toHideinOutputHTML">
+                  <span>
+                    <i class="delete orange icon deleteTable toHideinOutputHTML"></i>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tableBackground">
+
+              <tr>
+                <td>
+                  <div class="field">
+                    <select class="ui fluid dropdown" name="state0">
+                      <option value="Include">Included</option>
+                      <option value="Exclude">Excluded</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <select class="ui dropdown search selection visible home" name="type0" id="typeSelect">
+                      <option value="Any">Any</option>
+                      <option value="Beam">Beam</option>
+                      <option value="Building">Building</option>
+                      <option value="BuildingElementProxy">BuildingElementProxy</option>
+                      <option value="BuildingStorey">BuildingStorey</option>
+                      <option value="CableCarrierSegment">CableCarrierSegment</option>
+                      <option value="Ceiling">Ceiling</option>
+                      <option value="Covering">Covering</option>
+                      <option value="Column">Column</option>
+                      <option value="Curtain">Curtain</option>
+                      <option value="DistributionControlElement">DistributionControlElement</option>
+                      <option value="DistributionFlowElement">DistributionFlowElement</option>
+                      <option value="DiscreteAccessory">DiscreteAccessory</option>
+                      <option value="DistributionChamberElement">DistributionChamberElement</option>
+                      <option value="DistributionElement">DistributionElement</option>
+                      <option value="DistributionControl">DistributionControl</option>
+                      <option value="Door">Door</option>
+                      <option value="EnergyConversionDevice">EnergyConversionDevice</option>
+                      <option value="FlowTerminal">FlowTerminal</option>
+                      <option value="Fastener">Fastener</option>
+                      <option value="Footing">Footing</option>
+                      <option value="FurnishingElement">FurnishingElement</option>
+                      <option value="FlowMovingDevice">FlowMovingDevice</option>
+                      <option value="FlowTreatmentDevice">FlowTreatmentDevice</option>
+                      <option value="FlowFitting">FlowFitting</option>
+                      <option value="FlowController">FlowController</option>
+                      <option value="FlowStorageDevice">FlowStorageDevice</option>
+                      <option value="Grid">Grid</option>
+                      <option value="MechanicalFastener">MechanicalFastener</option>
+                      <option value="Member">Member</option>
+                      <option value="OpeningElement">OpeningElement</option>
+                      <option value="FlowSegment">Pipe Segment</option>
+                      <option value="Plate">Plate</option>
+                      <option value="Pile">Pile</option>
+                      <option value="Railing">Railing</option>
+                      <option value="Ramp">Ramp</option>
+                      <option value="RampFlight">RampFlight</option>
+                      <option value="ReinforcingBar">ReinforcingBar</option>
+                      <option value="ReinforcingMesh">ReinforcingMesh</option>
+                      <option value="Roof">Roof</option>
+                      <option value="Site">Site</option>
+                      <option value="Slab">Slab</option>
+                      <option value="Space">Space</option>
+                      <option value="Stair">Stair</option>
+                      <option value="StairFlight">StairFlight</option>
+                      <option value="TransportElement">TransportElement</option>
+                      <option value="Type">Type</option>
+                      <option value="TranportElement">TranportElement</option>
+                      <option value="Tendon">Tendon</option>
+                      <option value="TendonAnchor">TendonAnchor</option>
+                      <option value="UnitaryEquipmentType">UnitaryEquipmentType</option>
+                      <option value="Wall">Wall</option>
+                      <option value="Window">Window</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <select class="ui dropdown" name="property0" id="propertySelect">
+                      <option value="Any">Any</option>
+                      <option value="Building Name">Building Name</option>
+                      <option value="Description">IFC Description</option>
+                      <option value="ObjectType">IFC ObjectType</option>
+                      <option value="Level">Level</option>
+                      <option value="LongName">Long Name</option>
+                      <option value="Name">Name</option>
+                      <option value="Project Location">Project Location</option>
+                      <option value="Project Development Type">Project Development Type</option>
+                      <option value="System">System</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <select class="ui fluid dropdown" name="operator0">
+                      <option value="Contains">Contains</option>
+                      <option value="Match">Match</option>
+                      <option value="N.A">N.A</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <input type="text" name="value0">
+                </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="third">
+        <div class="draggableConditionalTable ui form">
+          <!-- ========================================================= -->
+          <!-- Condition Type 1 -->
+          <!-- ========================================================= -->
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot" class="toHideinOutputHTML">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Range
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui secondary segment">
+              <div class="ui form conditionalTable">
+                <div class="inline fields">
+                  <div class="six wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Condition
+                      </div>
+                      <input type="text" placeholder="Enter the condition">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui mini negative message" style="height:35px;padding:4px;width:60px;text-align:center;">
+                      <b class="">NOT</b>
+                    </div>
+                    <!-- <input type="text" placeholder="!" style={width:50px;}> -->
+                  </div>
+                  <input type="hidden" readonly value="Not Equal">
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        From
+                      </div>
+                      <input type="number" step="0.01" placeholder="0">
+                    </div>
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="example">
+                      <label></label>
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        To
+                      </div>
+                      <input type="number" step="0.01" placeholder="0">
+                    </div>
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="example">
+                      <label></label>
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Unit
+                      </div>
+                      <input type="text" placeholder="Unit" value="mm" disabled="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ========================================================= -->
+        <!-- Condition Type 2 -->
+        <!-- ========================================================= -->
+        <div class="draggableConditionalTable ui form">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot" class="toHideinOutputHTML">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Simple
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui secondary segment">
+              <div class="ui form conditionalTable">
+                <div class="inline fields">
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Condition
+                      </div>
+                      <input type="text" placeholder="Enter the condition">
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Operator
+                      </div>
+                      <select class="ui dropdown">
+                        <option value="<">Less than</option>
+                        <option value="<=">Less than or equal</option>
+                        <option value="=">Equal</option>
+                        <option value=">">Greater than</option>
+                        <option value=">=">Greater than or equal</option>
+                        <option value="!=">Not equal</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="one wide field">
+
+                  </div>
+
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Value
+                      </div>
+                      <input type="number" step="0.01" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="two wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Unit
+                      </div>
+                      <input type="text" placeholder="Unit" value="mm" disabled="true">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ========================================================= -->
+        <!-- Condition Type  3 -->
+        <!-- ========================================================= -->
+        <div class="draggableConditionalTable ui form">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot" class="toHideinOutputHTML">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Label
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui secondary segment">
+              <div class="ui form conditionalTable">
+                <div class="inline fields">
+                  <div class="sixteen wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Label
+                      </div>
+                      <input type="text" placeholder="Enter the condition">
+                    </div>
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="example">
+                      <label></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ========================================================= -->
+        <!-- Condition Type  4 -->
+        <!-- ========================================================= -->
+        <div class="draggableConditionalTable ui form">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot" class="toHideinOutputHTML">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Rule
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui form conditionalTable secondary segment">
+              <div class="ui segments">
+                <div class="ui segment">
+                  <p>WHEN</p>
+                </div>
+                <div class="ui secondary segment">
+                  <div class="ui form">
+                    <div class="inline fields">
+                      <div class="six wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Condition
+                          </div>
+                          <input type="text" placeholder="Enter the condition">
+                        </div>
+                      </div>
+                      <div class="six wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Operator
+                          </div>
+                          <select class="ui dropdown">
+                            <option value="<">Less than</option>
+                            <option value="<=">Less than or equal</option>
+                            <option value="=">Equal</option>
+                            <option value=">">Greater than</option>
+                            <option value=">=">Greater than or equal</option>
+                            <option value="!=">Not equal</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="six wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Value
+                          </div>
+                          <input type="number" step="0.01" placeholder="0">
+                        </div>
+                      </div>
+                      <div class="three wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Unit
+                          </div>
+                          <input type="text" placeholder="Unit" value="mm" disabled="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui segments">
+                <div class="ui segment">
+                  <p>THEN</p>
+                </div>
+                <div class="ui secondary segment">
+                  <div class="ui form">
+                    <div class="inline fields">
+                      <div class="six wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Condition
+                          </div>
+                          <input type="text" placeholder="Enter the condition">
+                        </div>
+                      </div>
+                      <div class="three wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            From
+                          </div>
+                          <input type="number" step="0.01" placeholder="0">
+                        </div>
+                      </div>
+                      <div class="one wide field">
+                        <div class="ui checkbox">
+                          <input type="checkbox" name="example">
+                          <label></label>
+                        </div>
+                      </div>
+                      <div class="three wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            To
+                          </div>
+                          <input type="number" step="0.01" placeholder="0">
+                        </div>
+                      </div>
+                      <div class="one wide field">
+                        <div class="ui checkbox">
+                          <input type="checkbox" name="example">
+                          <label></label>
+                        </div>
+                      </div>
+                      <div class="three wide field">
+                        <div class="ui small labeled input">
+                          <div class="ui label">
+                            Unit
+                          </div>
+                          <input type="text" placeholder="Unit" value="mm" disabled="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- Custom Condition  -->
+        <!-- ========================================================= -->
+        <div class="draggableConditionalTable ui form customCondition">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot" class="toHideinOutputHTML">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Custom Condition
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui form conditionalTable secondary segment">
+              <span class="mini ui button toHideinOutputHTML" id="condition"><i class="add green icon"></i>Condition</span>
+              <span class="mini ui button toHideinOutputHTML" id="operator"><i class="add green icon"></i>Operator</span>
+              <span class="mini ui button toHideinOutputHTML" id="from-to"><i class="add green icon"></i>From-To</span>
+              <span class="mini ui button toHideinOutputHTML" id="value"><i class="add green icon"></i>Value</span>
+              <span class="mini ui button toHideinOutputHTML" id="unit"><i class="add green icon"></i>Unit</span>
+              <span class="mini ui button toHideinOutputHTML" id="checkbox"><i class="add green icon"></i>Checkbox</span>
+              <span class="mini ui button toHideinOutputHTML" id="label"><i class="add green icon"></i>Label</span>
+              <span class="mini ui button toHideinOutputHTML" id="when-then"><i class="add green icon"></i>WHEN-THEN</span>
+
+              <div class="style">
+                <!-- Append items here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- Modal -->
+  <div class="ui small modal">
+    <div class="header">Enter File Name to Save</div>
+    <div class="content">
+      <form class="ui form" id="saveFile">
+        <div class="field">
+          <label>File Name</label>
+
+          <div class="ui action input">
+            <input type="text" name="fileName" placeholder="">
+            <span class="ui button">.html</span>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui basic positive approve button">Okay</div>
+      <div class="ui cancel button">Cancel</div>
+    </div>
+  </div>
+  <!-- Include JS file. -->
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.min.js'></script>
+  <script type="text/javascript" src="assets/js/frola/froala_editor.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/align.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/code_beautifier.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/colors.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/draggable.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/font_size.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/font_family.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/image.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/image_manager.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/line_breaker.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/link.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/lists.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/paragraph_format.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/paragraph_style.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/table.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/url.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/entities.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/char_counter.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/inline_style.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/quick_insert.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/save.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/fullscreen.min.js"></script>
+  <script type="text/javascript" src="assets/js/frola/plugins/quote.min.js"></script>
+  <!-- Include Viewer file. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js"></script><!-- Viewer.js is required -->
+  <!-- <script src="assets/js/viewer/viewer.js"></script> -->
+  <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+  <script type="text/javascript" src="assets/js/customCondition.js"></script>
+  <script type="text/javascript" src="assets/js/table.js"></script>
+  <script type="text/javascript" src="assets/js/FileReader.js"></script>
+
+
+
+  <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.6/js/lib/beautify.js"></script>
+  <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.6/js/lib/beautify-css.js"></script>
+  <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.6/js/lib/beautify-html.js"></script>
+
+
+
+</body>
+
+</html>

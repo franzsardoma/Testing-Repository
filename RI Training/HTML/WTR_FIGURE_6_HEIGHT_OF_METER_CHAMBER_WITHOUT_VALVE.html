@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" dir="ltr">   <head>      <meta charset="utf-8">      <title>Universal Template</title>        <!-- For Font Style. -->      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">        <!-- Semantic Ui CSS -->      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">        <!-- Own Ui CSS -->        <!-- Include jQuery. -->      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>        <style>              body{                padding: 5%;                background: #f0f2f5;              }              h1, h2, h3, h4, h5, h6 , a , p{               font-family: 'Raleway' !important;              }              .ui.header.red{                font-weight: 700px !important;                /* color: white !important; */              }              .backgroundWhite{                background: white !important;              }              .icon.close{                display: none !important;              }              .ui.black.table, .ui.segments.conditionSeg{                margin-bottom: 30px; !important;              }             .fr-inner{                 text-align: center !important;                 margin: auto !important;                 margin-top: 5px !important;                 display: table !important;              }         </style>   </head>   <body> <div style="display:none;"> <?xml version="1.0" encoding="UTF-8"?>
+		 <FORMPARAMETER>
+		   <CLAUSE NAME="Gross Floor Area" CLAUSEID="3.1">
+			 			<FORMOBJECT ID="name" TYPE="Text"> WTR Figure 6 - Height of meter chamber without valve</FORMOBJECT>
+						<FORMOBJECT ID="SystemType"></FORMOBJECT>
+						<FORMOBJECT ID="Space Type 1" TYPE="table"><ROWOBJECT TYPE="TR"><COLUMNOBJECT ID="state" TYPE="TD"><TBLOBJECT ID="Include" TYPE="select" ISSELECTED="true" VALUE="Include">Include</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="property" TYPE="TD"><TBLOBJECT ID="LongName" TYPE="select" ISSELECTED="true" VALUE="LongName">LongName</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="operator" TYPE="TD"><TBLOBJECT ID="Contains" TYPE="select" ISSELECTED="true" VALUE="Contains">Contains</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="value" TYPE="TD"><TBLOBJECT ID="value" TYPE="input" ISSELECTED="true" VALUE="Meter Chamber">Meter Chamber</TBLOBJECT></COLUMNOBJECT></ROWOBJECT></FORMOBJECT><FORMOBJECT ID="Element Type 1" TYPE="table"><ROWOBJECT TYPE="TR"><COLUMNOBJECT ID="state" TYPE="TD"><TBLOBJECT ID="Include" TYPE="select" ISSELECTED="true" VALUE="Include">Include</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="type" TYPE="TD"><TBLOBJECT ID="FlowController" TYPE="select" ISSELECTED="true" VALUE="FlowController">FlowController</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="property" TYPE="TD"><TBLOBJECT ID="ObjectType" TYPE="select" ISSELECTED="true" VALUE="ObjectType">ObjectType</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="operator" TYPE="TD"><TBLOBJECT ID="Contains" TYPE="select" ISSELECTED="true" VALUE="Contains">Contains</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="value" TYPE="TD"><TBLOBJECT ID="value" TYPE="input" ISSELECTED="true" VALUE="Water Meter">Water Meter</TBLOBJECT></COLUMNOBJECT></ROWOBJECT><ROWOBJECT TYPE="TR"><COLUMNOBJECT ID="state" TYPE="TD"><TBLOBJECT ID="Exclude" TYPE="select" ISSELECTED="true" VALUE="Exclude">Exclude</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="type" TYPE="TD"><TBLOBJECT ID="FlowController" TYPE="select" ISSELECTED="true" VALUE="FlowController">FlowController</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="property" TYPE="TD"><TBLOBJECT ID="Any" TYPE="select" ISSELECTED="true" VALUE="Any">Any</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="operator" TYPE="TD"><TBLOBJECT ID="Contains" TYPE="select" ISSELECTED="true" VALUE="Contains">Contains</TBLOBJECT></COLUMNOBJECT><COLUMNOBJECT ID="value" TYPE="TD"><TBLOBJECT ID="value" TYPE="input" ISSELECTED="true" VALUE="Valves">Valves</TBLOBJECT></COLUMNOBJECT></ROWOBJECT></FORMOBJECT>
+						<FORMOBJECT ID="Condition1"><CONDITIONOBJECT ID="text0"  TYPE="text">without valves</CONDITIONOBJECT><CONDITIONOBJECT ID="checkbox1"  TYPE="checkbox">true</CONDITIONOBJECT></FORMOBJECT><FORMOBJECT ID="Condition2"><CONDITIONOBJECT ID="text0"  TYPE="text">Maximum height</CONDITIONOBJECT><CONDITIONOBJECT ID="select1"  TYPE="select"><=</CONDITIONOBJECT><CONDITIONOBJECT ID="number2"  TYPE="number">700</CONDITIONOBJECT><CONDITIONOBJECT ID="text3"  TYPE="text">mm</CONDITIONOBJECT></FORMOBJECT>
+			 </CLAUSE>
+			 </FORMPARAMETER>
+		 </div>  <div class="ui container">    <table class="ui padded celled table grey">      <thead>        <tr>          <th colspan="2" class="center aligned backgroundWhite">            <strong>              <h2 class="ui header red">FORNAX™ ePlanCheck Rule</h2>            </strong>          </th>        </tr>        <tr>          <th colspan="2" class="center aligned">            <h3 class="ui center aligned header">              Rule Parameters            </h3>          </th>        </tr>      </thead>      <tbody>        <tr>          <td class="center aligned">            <h4 class="ui header">Rule Name</h4>          </td>          <td>WTR Figure 6 - Height of meter chamber without valve</td>        </tr>      </tbody>    </table>    <div class="ui segment">      <h3 class="ui center aligned header">        Rule Description </h3> <div id="ruleDescription">    </div>  </div>    <div class="ui segment">      <h3 class="ui center aligned header">        Image/s      </h3> <div id="appendImage">  </div>    </div>    <div class="ui segment">      <h3 class="ui center aligned header">        Rule Parameters      </h3> <div id="droppableSystemType">  </div>    </div>    <div class="ui segment">      <h3 class="ui center aligned header">       Table      </h3>  <div id="droppableTable">  
+              <!-- THIS WILL BE THE CONTAINER FOR DROOPED SYSTEM TYPE -->
+            <div class="ui form draggableTable ui-draggable ui-draggable-handle" id="columnID1">
+          <table class="ui black table 4Cols removeSelectedTable" id="table1">
+            <thead>
+              <tr>
+                <th colspan="5"><input type="text" class="getIdToBeTextValue" placeholder="Enter table name" id="Space Type 1"></th>
+              </tr>
+              <tr>
+                <th id="state">State</th>
+                <th id="property">Property</th>
+                <th id="operator">Operator</th>
+                <th id="value">Value</th>
+                <th class="toHideinOutputHTML">
+                  <span>
+                    <i class="delete orange icon deleteTable toHideinOutputHTML"></i>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tableBackground">
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="ui fluid dropdown selection" tabindex="0"><select name="state0">
+                      <option value="Include">Included</option>
+                      <option value="Exclude">Excluded</option>
+                    </select><i class="dropdown icon"></i><div class="text">Included</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="Include">Included</div><div class="item" data-value="Exclude">Excluded</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <div class="ui fluid dropdown selection" tabindex="0"><select name="property0">
+                      <option value="LongName">Long Name</option>
+                      <option value="Occupancy">Occupancy</option>
+                      <option value="Level">Level</option>
+                      <option value="Any">Any</option>
+                    </select><i class="dropdown icon"></i><div class="text">Long Name</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="LongName">Long Name</div><div class="item" data-value="Occupancy">Occupancy</div><div class="item" data-value="Level">Level</div><div class="item" data-value="Any">Any</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <div class="ui fluid dropdown selection" tabindex="0"><select name="operator0">
+                      <option value="Match">Match</option>
+                      <option value="Contains">Contains</option>
+                      <option value="N/A">N/A</option>
+                    </select><i class="dropdown icon"></i><div class="text">Contains</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="Match">Match</div><div class="item active selected" data-value="Contains">Contains</div><div class="item" data-value="N/A">N/A</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <input type="text" name="value0" id="Meter Chamber" class="getIdToBeTextValue">
+                </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          <tfoot class="toHideinOutputHTML"><tr><td colspan="5">  <span class="mini ui button" id="addRow"><i class="add green icon"></i>  Add Row </span></td></tr></tfoot></table>
+        </div><div class="ui form draggableTable 5Column ui-draggable ui-draggable-handle" id="columnID2">
+          <table class="ui black table 5Cols removeSelectedTable" id="table2">
+            <thead>
+              <tr>
+                <th colspan="6"><input type="text" class="getIdToBeTextValue" placeholder="Enter table name" id="Element Type 1"></th>
+              </tr>
+              <tr>
+                <th id="state">State</th>
+                <th id="type">Type</th>
+                <th id="property">Property</th>
+                <th id="operator">Operator</th>
+                <th id="value">Value</th>
+                <th class="toHideinOutputHTML">
+                  <span>
+                    <i class="delete orange icon deleteTable toHideinOutputHTML"></i>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tableBackground">
+
+              <tr>
+                <td>
+                  <div class="field">
+                    <div class="ui fluid dropdown selection" tabindex="0"><select name="state0">
+                      <option value="Include">Included</option>
+                      <option value="Exclude">Excluded</option>
+                    </select><i class="dropdown icon"></i><div class="text">Included</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="Include">Included</div><div class="item" data-value="Exclude">Excluded</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <div class="ui dropdown search selection"><select name="type0" id="typeSelect">
+                      <option value="Any">Any</option>
+                      <option value="Beam">Beam</option>
+                      <option value="Building">Building</option>
+                      <option value="BuildingElementProxy">BuildingElementProxy</option>
+                      <option value="BuildingStorey">BuildingStorey</option>
+                      <option value="Covering">Covering</option>
+                      <option value="Column">Column</option>
+                      <option value="Curtain">Curtain</option>
+                      <option value="DistributionControlElement">DistributionControlElement</option>
+                      <option value="DistributionFlowElement">DistributionFlowElement</option>
+                      <option value="DiscreteAccessory">DiscreteAccessory</option>
+                      <option value="DistributionChamberElement">DistributionChamberElement</option>
+                      <option value="DistributionElement">DistributionElement</option>
+                      <option value="DistributionControl">DistributionControl</option>
+                      <option value="Door">Door</option>
+                      <option value="EnergyConversionDevice">EnergyConversionDevice</option>
+                      <option value="FlowTerminal">FlowTerminal</option>
+                      <option value="Fastener">Fastener</option>
+                      <option value="Footing">Footing</option>
+                      <option value="FurnishingElement">FurnishingElement</option>
+                      <option value="FlowMovingDevice">FlowMovingDevice</option>
+                      <option value="FlowTreatmentDevice">FlowTreatmentDevice</option>
+                      <option value="FlowFitting">FlowFitting</option>
+                      <option value="FlowController">FlowController</option>
+                      <option value="FlowStorageDevice">FlowStorageDevice</option>
+                      <option value="Grid">Grid</option>
+                      <option value="MechanicalFastener">MechanicalFastener</option>
+                      <option value="Member">Member</option>
+                      <option value="OpeningElement">OpeningElement</option>
+                      <option value="FlowSegment">Pipe Segment</option>
+                      <option value="Plate">Plate</option>
+                      <option value="Pile">Pile</option>
+                      <option value="Railing">Railing</option>
+                      <option value="Ramp">Ramp</option>
+                      <option value="RampFlight">RampFlight</option>
+                      <option value="ReinforcingBar">ReinforcingBar</option>
+                      <option value="ReinforcingMesh">ReinforcingMesh</option>
+                      <option value="Roof">Roof</option>
+                      <option value="Site">Site</option>
+                      <option value="Slab">Slab</option>
+                      <option value="Space">Space</option>
+                      <option value="Stair">Stair</option>
+                      <option value="StairFlight">StairFlight</option>
+                      <option value="TransportElement">TransportElement</option>
+                      <option value="Type">Type</option>
+                      <option value="TranportElement">TranportElement</option>
+                      <option value="Tendon">Tendon</option>
+                      <option value="TendonAnchor">TendonAnchor</option>
+                      <option value="UnitaryEquipmentType">UnitaryEquipmentType</option>
+                      <option value="Wall">Wall</option>
+                      <option value="Window">Window</option>
+                    </select><i class="dropdown icon"></i><input class="search" autocomplete="off" tabindex="0"><div class="text">FlowController</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="Any">Any</div><div class="item" data-value="Beam">Beam</div><div class="item" data-value="Building">Building</div><div class="item" data-value="BuildingElementProxy">BuildingElementProxy</div><div class="item" data-value="BuildingStorey">BuildingStorey</div><div class="item" data-value="Covering">Covering</div><div class="item" data-value="Column">Column</div><div class="item" data-value="Curtain">Curtain</div><div class="item" data-value="DistributionControlElement">DistributionControlElement</div><div class="item" data-value="DistributionFlowElement">DistributionFlowElement</div><div class="item" data-value="DiscreteAccessory">DiscreteAccessory</div><div class="item" data-value="DistributionChamberElement">DistributionChamberElement</div><div class="item" data-value="DistributionElement">DistributionElement</div><div class="item" data-value="DistributionControl">DistributionControl</div><div class="item" data-value="Door">Door</div><div class="item" data-value="EnergyConversionDevice">EnergyConversionDevice</div><div class="item" data-value="FlowTerminal">FlowTerminal</div><div class="item" data-value="Fastener">Fastener</div><div class="item" data-value="Footing">Footing</div><div class="item" data-value="FurnishingElement">FurnishingElement</div><div class="item" data-value="FlowMovingDevice">FlowMovingDevice</div><div class="item" data-value="FlowTreatmentDevice">FlowTreatmentDevice</div><div class="item" data-value="FlowFitting">FlowFitting</div><div class="item active selected" data-value="FlowController">FlowController</div><div class="item" data-value="FlowStorageDevice">FlowStorageDevice</div><div class="item" data-value="Grid">Grid</div><div class="item" data-value="MechanicalFastener">MechanicalFastener</div><div class="item" data-value="Member">Member</div><div class="item" data-value="OpeningElement">OpeningElement</div><div class="item" data-value="FlowSegment">Pipe Segment</div><div class="item" data-value="Plate">Plate</div><div class="item" data-value="Pile">Pile</div><div class="item" data-value="Railing">Railing</div><div class="item" data-value="Ramp">Ramp</div><div class="item" data-value="RampFlight">RampFlight</div><div class="item" data-value="ReinforcingBar">ReinforcingBar</div><div class="item" data-value="ReinforcingMesh">ReinforcingMesh</div><div class="item" data-value="Roof">Roof</div><div class="item" data-value="Site">Site</div><div class="item" data-value="Slab">Slab</div><div class="item" data-value="Space">Space</div><div class="item" data-value="Stair">Stair</div><div class="item" data-value="StairFlight">StairFlight</div><div class="item" data-value="TransportElement">TransportElement</div><div class="item" data-value="Type">Type</div><div class="item" data-value="TranportElement">TranportElement</div><div class="item" data-value="Tendon">Tendon</div><div class="item" data-value="TendonAnchor">TendonAnchor</div><div class="item" data-value="UnitaryEquipmentType">UnitaryEquipmentType</div><div class="item" data-value="Wall">Wall</div><div class="item" data-value="Window">Window</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <div class="ui dropdown selection" tabindex="0"><select name="property0" id="propertySelect">
+                      <option value="Any">Any</option>
+                      <option value="Building Name">Building Name</option>
+                      <option value="Description">IFC Description</option>
+                      <option value="ObjectType">IFC ObjectType</option>
+                      <option value="Level">Level</option>
+                      <option value="LongName">Long Name</option>
+                      <option value="Name">Name</option>
+                      <option value="Project Location">Project Location</option>
+                      <option value="Project Development Type">Project Development Type</option>
+                    </select><i class="dropdown icon"></i><div class="text">IFC ObjectType</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="Any">Any</div><div class="item" data-value="Building Name">Building Name</div><div class="item" data-value="Description">IFC Description</div><div class="item active selected" data-value="ObjectType">IFC ObjectType</div><div class="item" data-value="Level">Level</div><div class="item" data-value="LongName">Long Name</div><div class="item" data-value="Name">Name</div><div class="item" data-value="Project Location">Project Location</div><div class="item" data-value="Project Development Type">Project Development Type</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <div class="ui fluid dropdown selection" tabindex="0"><select name="operator0">
+                      <option value="Contains">Contains</option>
+                      <option value="Match">Match</option>
+                      <option value="N.A">N.A</option>
+                    </select><i class="dropdown icon"></i><div class="text">Contains</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="Contains">Contains</div><div class="item" data-value="Match">Match</div><div class="item" data-value="N.A">N.A</div></div></div>
+                  </div>
+                </td>
+                <td>
+                  <input type="text" name="value0" id="Water Meter" class="getIdToBeTextValue">
+                </td>
+                <td> </td>
+              </tr>
+            <tr><td><div class="field"><div class="ui fluid dropdown selection" tabindex="0"><select name="state1"><option value="Include">Included</option><option value="Exclude">Excluded</option></select><i class="dropdown icon"></i><div class="text">Excluded</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="Include">Included</div><div class="item active selected" data-value="Exclude">Excluded</div></div></div></div></td><td><div class="field"><div class="ui dropdown search selection upward"><select name="type1"><option value="Any">Any</option><option value="Beam">Beam</option><option value="Building">Building</option><option value="BuildingElementProxy">BuildingElementProxy</option><option value="BuildingStorey">BuildingStorey</option><option value="Covering">Covering</option><option value="Column">Column</option><option value="Curtain">Curtain</option><option value="DistributionControlElement">DistributionControlElement</option><option value="DistributionFlowElement">DistributionFlowElement</option><option value="DiscreteAccessory">DiscreteAccessory</option><option value="DistributionChamberElement">DistributionChamberElement</option><option value="DistributionElement">DistributionElement</option><option value="DistributionControl">DistributionControl</option><option value="Door">Door</option><option value="EnergyConversionDevice">EnergyConversionDevice</option><option value="FlowTerminal">FlowTerminal</option><option value="Fastener">Fastener</option><option value="Footing">Footing</option><option value="FurnishingElement">FurnishingElement</option><option value="FlowMovingDevice">FlowMovingDevice</option><option value="FlowTreatmentDevice">FlowTreatmentDevice</option><option value="FlowFitting">FlowFitting</option><option value="FlowSegment">FlowSegment</option><option value="FlowController">FlowController</option><option value="FlowStorageDevice">FlowStorageDevice</option><option value="Grid">Grid</option><option value="MechanicalFastener">MechanicalFastener</option><option value="Member">Member</option><option value="OpeningElement">OpeningElement</option><option value="FlowSegment">Pipe Segment</option><option value="Plate">Plate</option><option value="Pile">Pile</option><option value="Railing">Railing</option><option value="Ramp">Ramp</option><option value="RampFlight">RampFlight</option><option value="ReinforcingBar">ReinforcingBar</option><option value="ReinforcingMesh">ReinforcingMesh</option><option value="Roof">Roof</option><option value="Site">Site</option><option value="Slab">Slab</option><option value="Space">Space</option><option value="Stair">Stair</option><option value="StairFlight">StairFlight</option><option value="TransportElement">TransportElement</option><option value="Type">Type</option><option value="TranportElement">TranportElement</option><option value="Tendon">Tendon</option><option value="TendonAnchor">TendonAnchor</option><option value="UnitaryEquipmentType">UnitaryEquipmentType</option><option value="Wall">Wall</option><option value="Window">Window</option></select><i class="dropdown icon"></i><input class="search" autocomplete="off" tabindex="0"><div class="text">FlowController</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="Any">Any</div><div class="item" data-value="Beam">Beam</div><div class="item" data-value="Building">Building</div><div class="item" data-value="BuildingElementProxy">BuildingElementProxy</div><div class="item" data-value="BuildingStorey">BuildingStorey</div><div class="item" data-value="Covering">Covering</div><div class="item" data-value="Column">Column</div><div class="item" data-value="Curtain">Curtain</div><div class="item" data-value="DistributionControlElement">DistributionControlElement</div><div class="item" data-value="DistributionFlowElement">DistributionFlowElement</div><div class="item" data-value="DiscreteAccessory">DiscreteAccessory</div><div class="item" data-value="DistributionChamberElement">DistributionChamberElement</div><div class="item" data-value="DistributionElement">DistributionElement</div><div class="item" data-value="DistributionControl">DistributionControl</div><div class="item" data-value="Door">Door</div><div class="item" data-value="EnergyConversionDevice">EnergyConversionDevice</div><div class="item" data-value="FlowTerminal">FlowTerminal</div><div class="item" data-value="Fastener">Fastener</div><div class="item" data-value="Footing">Footing</div><div class="item" data-value="FurnishingElement">FurnishingElement</div><div class="item" data-value="FlowMovingDevice">FlowMovingDevice</div><div class="item" data-value="FlowTreatmentDevice">FlowTreatmentDevice</div><div class="item" data-value="FlowFitting">FlowFitting</div><div class="item" data-value="FlowSegment">FlowSegment</div><div class="item active selected" data-value="FlowController">FlowController</div><div class="item" data-value="FlowStorageDevice">FlowStorageDevice</div><div class="item" data-value="Grid">Grid</div><div class="item" data-value="MechanicalFastener">MechanicalFastener</div><div class="item" data-value="Member">Member</div><div class="item" data-value="OpeningElement">OpeningElement</div><div class="item" data-value="FlowSegment">Pipe Segment</div><div class="item" data-value="Plate">Plate</div><div class="item" data-value="Pile">Pile</div><div class="item" data-value="Railing">Railing</div><div class="item" data-value="Ramp">Ramp</div><div class="item" data-value="RampFlight">RampFlight</div><div class="item" data-value="ReinforcingBar">ReinforcingBar</div><div class="item" data-value="ReinforcingMesh">ReinforcingMesh</div><div class="item" data-value="Roof">Roof</div><div class="item" data-value="Site">Site</div><div class="item" data-value="Slab">Slab</div><div class="item" data-value="Space">Space</div><div class="item" data-value="Stair">Stair</div><div class="item" data-value="StairFlight">StairFlight</div><div class="item" data-value="TransportElement">TransportElement</div><div class="item" data-value="Type">Type</div><div class="item" data-value="TranportElement">TranportElement</div><div class="item" data-value="Tendon">Tendon</div><div class="item" data-value="TendonAnchor">TendonAnchor</div><div class="item" data-value="UnitaryEquipmentType">UnitaryEquipmentType</div><div class="item" data-value="Wall">Wall</div><div class="item" data-value="Window">Window</div></div></div></div></td><td><div class="field"><div class="ui selection dropdown" tabindex="0"><select name="property1"><option value="Any">Any</option><option value="Building Name">Building Name</option><option value="Description">IFC Description</option><option value="ObjectType">IFC ObjectType</option><option value="Level">Level</option><option value="LongName">Long Name</option><option value="Name">Name</option><option value="Project Location">Project Location</option><option value="Project Development Type">Project Development Type</option></select><i class="dropdown icon"></i><div class="text">Any</div><div class="menu transition hidden" tabindex="-1"><div class="item active selected" data-value="Any">Any</div><div class="item" data-value="Building Name">Building Name</div><div class="item" data-value="Description">IFC Description</div><div class="item" data-value="ObjectType">IFC ObjectType</div><div class="item" data-value="Level">Level</div><div class="item" data-value="LongName">Long Name</div><div class="item" data-value="Name">Name</div><div class="item" data-value="Project Location">Project Location</div><div class="item" data-value="Project Development Type">Project Development Type</div></div></div></div></td> <td><div class="field"><div class="ui fluid dropdown selection" tabindex="0"><select name="operator1"><option value="Contains">Contains</option><option value="Match">Match</option><option value="N.A">N.A</option></select><i class="dropdown icon"></i><div class="text">Contains</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="Contains">Contains</div><div class="item" data-value="Match">Match</div><div class="item" data-value="N.A">N.A</div></div></div></div></td><td><input type="text" name="value1" id="Valves" class="getIdToBeTextValue"></td><td class="toHideinOutputHTML"><span class="mini ui" id="deleteRow"><i class="trash red icon"></i></span></td></tr></tbody>
+          <tfoot class="toHideinOutputHTML"><tr><td colspan="5">  <span class="mini ui button" id="addRow"><i class="add green icon"></i>  Add Row </span></td></tr></tfoot></table>
+        </div></div>    </div>    <div class="ui segment">      <h3 class="ui center aligned header">       Condition/s Table      </h3> <div id="droppableConditionalTable">  
+              <!-- THIS WILL BE THE CONTAINER FOR DROOPED SYSTEM TYPE -->
+            <div class="draggableConditionalTable ui form ui-draggable ui-draggable-handle" id="conditionID0">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Label
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui secondary segment">
+              <div class="ui form conditionalTable">
+                <div class="inline fields">
+                  <div class="sixteen wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Label
+                      </div>
+                      <input type="text" placeholder="Enter the condition" id="without valves" class="getIdToBeTextValueCConditional">
+                    </div>
+                    <div class="ui checkbox checked">
+                      <input type="checkbox" name="example" tabindex="0" class="getIdToBeTextValueCConditional" id="true">
+                      <label></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><div class="draggableConditionalTable ui form ui-draggable ui-draggable-handle" id="conditionID1">
+          <div class="ui segments conditionSeg">
+            <div class="ui segment" id="paddingBot">
+              <div class="ui secondary menu">
+                <h3 class="ui center aligned header">
+                  Simple
+                </h3>
+                <div class="right menu">
+                  <span class="removeSegment"><i class="icon orange close"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui secondary segment">
+              <div class="ui form conditionalTable">
+                <div class="inline fields">
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Condition
+                      </div>
+                      <input type="text" placeholder="Enter the condition" id="Maximum height" class="getIdToBeTextValueCConditional">
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Operator
+                      </div>
+                      <div class="ui dropdown selection upward" tabindex="0"><select id="<=" class="getIdToBeTextValueCConditional">
+                        <option value="<">Less than</option>
+                        <option value="<=">Less than or equal</option>
+                        <option value="=">Equal</option>
+                        <option value=">">Greater than</option>
+                        <option value=">=">Greater than or equal</option>
+                        <option value="!=">Not equal</option>
+                      </select><i class="dropdown icon"></i><div class="text">Less than or equal</div><div class="menu transition hidden" tabindex="-1"><div class="item" data-value="<">Less than</div><div class="item active selected" data-value="<=">Less than or equal</div><div class="item" data-value="=">Equal</div><div class="item" data-value=">">Greater than</div><div class="item" data-value=">=">Greater than or equal</div><div class="item" data-value="!=">Not equal</div></div></div>
+                    </div>
+                  </div>
+                  <div class="one wide field">
+
+                  </div>
+
+                  <div class="four wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Value
+                      </div>
+                      <input type="number" step="0.01" placeholder="0" id="700" class="getIdToBeTextValueCConditional">
+                    </div>
+                  </div>
+                  <div class="two wide field">
+                    <div class="ui small labeled input">
+                      <div class="ui label">
+                        Unit
+                      </div>
+                      <input type="text" placeholder="Unit" value="mm" disabled="true" id="mm" class="getIdToBeTextValueCConditional">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>    </div>  </div>  <script>    $(document).ready(function() {      $("img").removeAttr("style");      $("img").addClass("ui centered large image");      $("#tablesContainer").removeClass("ui segment droppableTable ui-droppable");      $(".ui.segment.draggableSystemType").removeAttr("style");      $(".toHideinOutputHTML").remove();      $(".ui.checkbox.checked").find("input,radio, checkbox").each(function() {                  $(this).attr("checked", true);       });     $(".getIdToBeTextValue" ).each(function( index ) {          var id = $(this).attr("id");          $(this).val(id);       });     $(".getIdToBeTextValueCConditional" ).each(function( index ) {          var id = $(this).attr("id");          $(this).val(id);       });     $("input" ).each(function( index ) {          $(this).attr("readonly", "readonly");       });    });  </script></body></html>
