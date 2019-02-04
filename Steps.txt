@@ -3,3 +3,14 @@ Release x64
 
 D:\Git\Fornax\ProjectSln -> BUILD ALL -> FORNAX_ePlanCheck -> set as Startup Project
 D:\Git\Fornax\ProjectSln -> BUILD ALL -> Fornax check engine
+
+
+Model:
+open model -> browse IFC.
+inspector -> open rule set -> browse XML or PUB file.
+
+reporter:
+display warnings, compliant and non compliant.
+
+
+model -> console -> drag and drop LUA file.
