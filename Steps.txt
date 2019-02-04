@@ -1,0 +1,5 @@
+Release x64
+
+
+D:\Git\Fornax\ProjectSln -> BUILD ALL -> FORNAX_ePlanCheck -> set as Startup Project
+D:\Git\Fornax\ProjectSln -> BUILD ALL -> Fornax check engine
