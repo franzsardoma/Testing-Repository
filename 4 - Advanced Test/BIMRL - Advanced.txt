@@ -1,0 +1,20 @@
+Model: Trench Cover.ifc
+1. Find pairs of trenches and their potential associated Trench Cover using
+spatial index [10]
+
+2. Identify the hole of each Trench Cover and report their area [10]
+
+
+Model: MySimpleHouse-location.ifc
+3. Identify a location (point) about 30cm in front of every door [15]
+
+4. Identify the face of the opening of every door that is facing the Door
+opening direction and report the area and its angle from the True North [15] 
+
+5. Identify a footprint of every every spaces and report their areas [15]
+
+6. Find all IfcFurnishingElement, or IfcDistributionElement, or
+IfcBuildingElementProxy in the model that has the value of "Room Label"
+property mismatch with the space that it is belonged to [20]
+
+
